@@ -75,7 +75,7 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
+     
         if (Auth::guard('teacher')->attempt($credentials)) {
             $request->session()->regenerate();
             
