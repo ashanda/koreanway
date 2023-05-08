@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 // Admin routes
 Route::post('/admin',[LoginController::class,'adminLogin'])->name('admin.login');
@@ -45,7 +45,7 @@ Route::middleware('auth:teacher')->group(function () {
 //Users routes
 
 Route::middleware('auth:user')->group(function () {
-
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
    
 });
 

@@ -26,6 +26,9 @@ class RedirectIfAuthenticated
             if ($guard == "teacher" && Auth::guard($guard)->check()) {
                 return redirect('/teacher/dashboard');
             }
+            if ($guard == "user" && Auth::guard($guard)->check()) {
+                return redirect('/dashboard');
+            }
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
             }
