@@ -19,5 +19,10 @@
             </div>
         </div>
     </div>
+    <div class="navbar">
+        <a href="{{ route('batch.index') }}">Batch</a>
+        <a href="{{ route('course.index') }}">Course</a>
+        <a href="{{ route('class.index') }}">Classes</a>
+    </div>
 </div>
 @endsection

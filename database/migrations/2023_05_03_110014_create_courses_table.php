@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('batch_id');
+            $table->unsignedBigInteger('teacher_id');
+            $table->string('name');
+            $table->string('status');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

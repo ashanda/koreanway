@@ -1,14 +1,15 @@
 @extends('layouts.app')
  
 @section('content')
+
 <a href="{{ route('admin.dashboard') }}">Dashboard</a>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Courses</h2>
+                <h2>Classes</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('course.create') }}"> Create New Course</a>
+                <a class="btn btn-success" href="{{ route('batch.create') }}"> Create New Class</a>
             </div>
         </div>
     </div>
@@ -22,25 +23,21 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Batch ID</th>
-            <th>Teacher</th>
-            <th>Course Name</th>
+            <th>Batch Name</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
-        @foreach ($courses as $course)
+        @foreach ($batches as $batch)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $course->batch_id }}</td>
-            <td>{{ $course->teacher_id }}</td>
-            <td>{{ $course->name}}</td>
-            <td>{{ $course->status }}</td>
+            <td>{{ $batch->name }}</td>
+            <td>{{ $batch->status }}</td>
             <td>
-                <form action="{{ route('course.destroy',$course->id) }}" method="POST">
+                <form action="{{ route('batch.destroy',$batch->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('course.show',$course->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('batch.show',$batch->id) }}">Show</a>
     
-                    <a class="btn btn-primary" href="{{ route('course.edit',$course->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('batch.edit',$batch->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
@@ -52,6 +49,6 @@
         @endforeach
     </table>
   
-    {!! $courses->links() !!}
+    {!! $batches->links() !!}
       
 @endsection

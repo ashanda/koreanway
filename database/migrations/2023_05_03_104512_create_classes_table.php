@@ -13,9 +13,24 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('classtype');
+            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('batch_id');
+            $table->unsignedBigInteger('course_id');
+            $table->text('lesson');
+            $table->string('image')->nullable();
+            $table->string('doc')->nullable();
+            $table->string('link')->nullable();
+            $table->string('available_days');
+            $table->unsignedBigInteger('no_of_views')->default(0);
+            $table->string('level')->nullable();
+            $table->string('password')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

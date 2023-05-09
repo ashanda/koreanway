@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BatchController;
+use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -48,4 +51,13 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
    
 });
+
+// Batches routes
+Route::resource('/admin/batch', BatchController::class);
+
+// Courses routes
+Route::resource('/admin/course', CourseController::class);
+
+// Classes routs
+Route::resource('/admin/class', ClassesController::class);
 

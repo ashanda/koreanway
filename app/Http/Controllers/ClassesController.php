@@ -2,73 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use Illuminate\Http\Request;
 
 class ClassesController extends Controller
 {
-    // Class Schdule
-    public function class_schdule_index(){
-
-    }
-
-    public function class_schdule_create(){
-        
-    }
-
-    public function class_schdule_edit(){
-        
-    }
-
-    public function class_schdule_update(){
-        
-    }
-
-    public function class_schdule_destroy(){
-        
-    }
-
-  //Class Tute
-  public function class_tute_index(){
-
+  public function index()
+  {
+    $classes = Classes::latest()->paginate(5);
+    return view('admin.class.index', compact('classes'))->with('i', (request()->input('page', 1) - 1) * 5);
   }
 
-  public function class_tute_create(){
-      
+  public function create()
+  {
+    $batch_data = Batch::all();
+    $teacher_data = Teacher::all();
+    return view('admin.filters.course.create', compact('batch_data', 'teacher_data'));
   }
 
-  public function class_tute_edit(){
-      
+  public function store(Request $request)
+  {
+    $request->validate([
+      'batch_id' => 'required',
+      'teacher_id' => 'required',
+      'name' => 'required',
+      'status' => 'required',
+    ]);
+
+    Course::create($request->all());
+    return redirect()->route('course.index')->with('success', 'Course created successfully.');
   }
 
-  public function class_tute_update(){
-      
+  public function show(Course $course)
+  {
+    return view('admin.filters.course.show', compact('course'));
   }
 
-  public function class_tute_destroy(){
-      
+  public function edit(Course $course)
+  {
+    $batch_data = Batch::all();
+    $teacher_data = Teacher::all();
+    return view('admin.filters.course.edit', compact('course', 'batch_data', 'teacher_data'));
   }
 
-  //Video Class
+  public function update(Request $request, Course $course)
+  {
+    $request->validate([
+      'batch_id' => 'required',
+      'teacher_id' => 'required',
+      'name' => 'required',
+      'status' => 'required',
+    ]);
 
-  public function class_video_index(){
+    // Retrieve the batch data
+    $course->update($request->all());
 
+    return redirect()->route('course.index')->with('success', 'Course updated successfully');
   }
+  public function destroy(Course $course)
+  {
+    $course->delete();
 
-  public function class_video_create(){
-      
+    return redirect()->route('course.index')->with('success', 'Course deleted successfully');
   }
-
-  public function class_video_edit(){
-      
-  }
-
-  public function class_video_update(){
-      
-  }
-
-  public function class_video_destroy(){
-      
-  }
-
-
 }
