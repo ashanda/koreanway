@@ -14,13 +14,13 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Batch Name:</strong>
+                <label>Batch Name:</label>
                 {{ $batch->name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Details:</strong>
+                <label>Details:</label>
                 {{ $batch->status }}
             </div>
         </div>

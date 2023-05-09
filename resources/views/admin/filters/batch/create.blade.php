@@ -14,7 +14,7 @@
 
 @if ($errors->any())
 <div class="alert alert-danger">
-    <strong>Error!</strong> <br>
+    <label>Error!</label> <br>
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Batch Name:</strong>
+                <label>Batch Name:</label>
                 <input type="text" name="name" class="form-control" placeholder="Name">
             </div>
         </div>

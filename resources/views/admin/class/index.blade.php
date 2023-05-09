@@ -9,7 +9,7 @@
                 <h2>Classes</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('batch.create') }}"> Create New Class</a>
+                <a class="btn btn-success" href="{{ route('class.create') }}"> Create New Class</a>
             </div>
         </div>
     </div>
@@ -23,21 +23,45 @@
     <table class="table table-bordered">
         <tr>
             <th>No</th>
-            <th>Batch Name</th>
+            <th>Class Title</th>
+            <th>CLass Type</th>
+            <th>teacher ID</th>
+            <th>Batch Id</th>
+            <td>Course Id</td>
+            <th>Lesson</th>
+            <th>Image</th>
+            <th>Doc</th>
+            <th>Link</th>
+            <th>Available Days</th>
+            <th>Number of Views</th>
+            <th>Level</th>
+            <th>Password</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
-        @foreach ($batches as $batch)
+        @foreach ($classes as $class)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $batch->name }}</td>
-            <td>{{ $batch->status }}</td>
+            <td>{{ $class->title }}</td>
+            <td>{{ $class->classtype }}</td>
+            <td>{{ $class->teacher_id }}</td>
+            <td>{{ $class->batch_id }}</td>
+            <td>{{ $class->course_id }}</td>
+            <td>{{ $class->lesson }}</td>
+            <td>{{ $class->image }}</td>
+            <td>{{ $class->doc }}</td>
+            <td>{{ $class->link }}</td>
+            <td>{{ $class->available_days }}</td>
+            <td>{{ $class->no_of_views }}</td>
+            <td>{{ $class->level }}</td>
+            <td>{{ $class->password }}</td>
+            <td>{{ $class->status }}</td>
             <td>
-                <form action="{{ route('batch.destroy',$batch->id) }}" method="POST">
+                <form action="{{ route('class.destroy',$class->id) }}" method="POST">
    
-                    <a class="btn btn-info" href="{{ route('batch.show',$batch->id) }}">Show</a>
+                    <a class="btn btn-info" href="{{ route('class.show',$class->id) }}">Show</a>
     
-                    <a class="btn btn-primary" href="{{ route('batch.edit',$batch->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('class.edit',$class->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
@@ -49,6 +73,6 @@
         @endforeach
     </table>
   
-    {!! $batches->links() !!}
+    {!! $classes->links() !!}
       
 @endsection

@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="batch_id" class="form-label">Batch:</label>
+                <label for="batch_id" class="form-label">Batch Id:</label>
                 <select class="form-control" name="batch_id" id="batch_id">
                     @foreach($batch_data as $data )
                     <option value="{{$data -> id}}">{{$data -> name}}</option>
@@ -39,7 +39,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="teacher_id" class="form-label">Teacher:</label>
+                <label for="teacher_id" class="form-label">Teacher ID:</label>
                 <select class="form-control" name="teacher_id" id="teacher_id">
                     @foreach($teacher_data as $data )
                     <option value="{{$data -> id}}">{{$data -> name}}</option>
