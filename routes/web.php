@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LmsclassController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -59,5 +60,4 @@ Route::resource('/admin/batch', BatchController::class);
 Route::resource('/admin/course', CourseController::class);
 
 // Classes routs
-Route::resource('/admin/class', ClassesController::class);
-
+Route::resource('/admin/lmsclass', LmsclassController::class);

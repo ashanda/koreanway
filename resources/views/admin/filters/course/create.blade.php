@@ -32,7 +32,7 @@
                 <label for="batch_id" class="form-label">Batch Id:</label>
                 <select class="form-control" name="batch_id" id="batch_id">
                     @foreach($batch_data as $data )
-                    <option value="{{$data -> id}}">{{$data -> name}}</option>
+                    <option value="{{$data->id}}">{{$data->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -42,7 +42,7 @@
                 <label for="teacher_id" class="form-label">Teacher ID:</label>
                 <select class="form-control" name="teacher_id" id="teacher_id">
                     @foreach($teacher_data as $data )
-                    <option value="{{$data -> id}}">{{$data -> name}}</option>
+                    <option value="{{$data->id}}">{{$data->name}}</option>
                     @endforeach
                 </select>
             </div>

@@ -22,7 +22,12 @@
     <div class="navbar">
         <a href="{{ route('batch.index') }}">Batch</a>
         <a href="{{ route('course.index') }}">Course</a>
-        <a href="{{ route('class.index') }}">Classes</a>
+        <span>Classes</span>
+        <ul>
+            <li><a href="{{ route('lmsclass.index') }}">Class Schedules</a></li>
+            <li><a href="{{ route('lmsclass.index') }}">Class Tutes </a></li>
+            <li><a href="{{ route('lmsclass.index') }}">Class Videos</a></li>
+        </ul> 
     </div>
 </div>
 @endsection

@@ -58,9 +58,8 @@
             <div class="form-group">
                 <label>Status:</label>
                 <select class="form-control" name="status" id="status">
-                    <option>{{ $course->status }}</option>
-                    <option>Publish</option>
-                    <option>Unpublish</option>
+                    <option value="1" {{ $course->status == '1' ? 'selected' : '' }}>Publish</option>
+                    <option value="2" {{ $course->status == '0' ? 'selected' : '' }}>Unpublish</option>
                 </select>
             </div>
         </div>
