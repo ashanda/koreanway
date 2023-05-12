@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="float-start">
-                <h3>Add New Batch</h3>
+                <h3>Edit Teacher</h3>
             </div>
             <div class="float-end">
-                <a class="btn btn-sm btn-primary" href="{{ route('batch.index') }}">Batches</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('teacher.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -24,23 +24,27 @@
     </div>
     @endif
 
-    <form action="{{ route('batch.store') }}" method="POST">
+    <form action="{{ route('teacher.update',$teacher->id) }}" method="POST">
         @csrf
+        @method('PUT')
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label>Batch Name:</label>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <label>Teacher Name:</label>
+                    <input type="text" name="name" value="{{ $teacher->name }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label for="status" class="form-label">Status:</label>
-                    <select class="form-control" name="status" id="status">
-                        <option>Publish</option>
-                        <option>Unpublish</option>
-                    </select>
+                    <label>Teacher Email:</label>
+                    <input type="text" name="email" value="{{ $teacher->email }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label>Teacher Password:</label>
+                    <input type="text" name="password" value="{{ $teacher->password }}" class="form-control">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

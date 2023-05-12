@@ -1,24 +1,25 @@
 @extends('layouts.app')
- 
+
 @section('content')
-<a href="{{ route('admin.dashboard') }}">Dashboard</a>
+<div class="container">
+    <a href="{{ route('admin.dashboard') }}">Dashboard</a>
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Courses</h2>
+            <div class="float-start">
+                <h3>Courses</h3>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('course.create') }}"> Create New Course</a>
+            <div class="float-end">
+                <a class="btn btn-sm btn-success" href="{{ route('course.create') }}"> Create New Course</a>
             </div>
         </div>
     </div>
-   
+
     @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+    </div>
     @endif
-   
+
     <table class="table table-bordered">
         <tr>
             <th>No</th>
@@ -37,21 +38,22 @@
             <td>{{ $course->status }}</td>
             <td>
                 <form action="{{ route('course.destroy',$course->id) }}" method="POST">
-   
-                    <a class="btn btn-info" href="{{ route('course.show',$course->id) }}">Show</a>
-    
-                    <a class="btn btn-primary" href="{{ route('course.edit',$course->id) }}">Edit</a>
-   
+
+                    <a class="btn btn-sm btn-info" href="{{ route('course.show',$course->id) }}">View</a>
+
+                    <a class="btn btn-sm btn-primary" href="{{ route('course.edit',$course->id) }}">Edit</a>
+
                     @csrf
                     @method('DELETE')
-      
-                    <button type="submit" class="btn btn-danger">Delete</button>
+
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
-  
-    {!! $courses->links() !!}
-      
+</div>
+
+{!! $courses->links() !!}
+
 @endsection

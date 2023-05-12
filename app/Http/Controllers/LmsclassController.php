@@ -10,11 +10,23 @@ use Illuminate\Http\Request;
 
 class LmsclassController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $lmsclasses = Lmsclass::latest()->paginate(5);
-        return view('admin.lmsclass.index', compact('lmsclasses'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+        $type = $request->query('type');
+
+        if ($type == 'schedule') {
+            $lmsclasses = Lmsclass::where('classtype', 'schedule')->latest()->paginate(5);
+        } elseif ($type == 'tute') {
+            $lmsclasses = Lmsclass::where('classtype', 'tute')->latest()->paginate(5);
+        } elseif ($type == 'video') {
+            $lmsclasses = Lmsclass::where('classtype', 'video')->latest()->paginate(5);
+        }
+
+        return view('admin.lmsclass.index', compact('lmsclasses', 'type'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
 
     public function create()
     {

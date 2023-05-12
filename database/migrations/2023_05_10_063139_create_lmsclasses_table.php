@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('doc')->nullable();
             $table->string('link')->nullable();
-            $table->string('available_days');
-            $table->unsignedBigInteger('no_of_views')->default(0);
+            $table->string('available_days')->nullable();
+            $table->unsignedBigInteger('no_of_views')->nullable();
             $table->string('level')->nullable();
             $table->string('password')->nullable();
             $table->string('status');

@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="float-start">
-                <h3> Show Course</h3>
+                <h3> Show Teacher</h3>
             </div>
             <div class="float-end">
-                <a class="btn btn-sm btn-primary" href="{{ route('course.index') }}"> Back</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('teacher.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -15,26 +15,20 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label>Batch ID:</label>
-                {{ $course->batch_id }}
+                <label>Teacher Name:</label>
+                {{ $teacher->name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label>Teacher ID:</label>
-                {{ $course->teacher_id }}
+                <label>Email:</label>
+                {{ $teacher->email }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label>Course Name:</label>
-                {{ $course->name }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <label>Status:</label>
-                {{ $course->status }}
+                <label>Password:</label>
+                {{ $teacher->password }}
             </div>
         </div>
     </div>

@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="float-start">
-                <h3>Add New Batch</h3>
+                <h3>Add New Teacher</h3>
             </div>
             <div class="float-end">
-                <a class="btn btn-sm btn-primary" href="{{ route('batch.index') }}">Batches</a>
+                <a class="btn btn-sm btn-primary" href="{{ route('teacher.index') }}">Teachers</a>
             </div>
         </div>
     </div>
@@ -24,23 +24,26 @@
     </div>
     @endif
 
-    <form action="{{ route('batch.store') }}" method="POST">
+    <form action="{{ route('teacher.store') }}" method="POST">
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label>Batch Name:</label>
+                    <label>Teacher Name:</label>
                     <input type="text" name="name" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label for="status" class="form-label">Status:</label>
-                    <select class="form-control" name="status" id="status">
-                        <option>Publish</option>
-                        <option>Unpublish</option>
-                    </select>
+                    <label>Teacher Email:</label>
+                    <input type="text" name="email" class="form-control" placeholder="Email address">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label>Teacher Password:</label>
+                    <input type="text" name="password" class="form-control" placeholder="Password">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

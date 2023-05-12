@@ -1,105 +1,114 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
-    <div class="col-lg-12 margin-tb">
-        <div class="pull-left">
-            <h2> Show Class</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('lmsclass.index') }}"> Back</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="float-start">
+                <h3> Show Class</h3>
+            </div>
+            <div class="float-end">
+                <a class="btn btn-sm btn-primary" href="{{ route('lmsclass.index') }}"> Back</a>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Class Title:</label>
-            {{ $lmsclass->title }}
+    <div class="row">
+        @if($lmsclass->classtype == 'Schedule')
+        <p>This is Schedule fields</p>
+        @elseif($lmsclass->classtype == 'Tute')
+        <p>This is Tute fields</p>
+        @elseif($lmsclass->classtype == 'Video')
+        <p>This is Video fields</p>
+        @endif
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Class Title:</label>
+                {{ $lmsclass->title }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>CLass Type:</label>
-            {{ $lmsclass->classtype }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>CLass Type:</label>
+                {{ $lmsclass->classtype }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Payement Type:</label>
-            {{ $lmsclass->paytype }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Payement Type:</label>
+                {{ $lmsclass->paytype }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Teacher ID:</label>
-            {{ $lmsclass->teacher_id }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Teacher ID:</label>
+                {{ $lmsclass->teacher_id }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Batch Id:</label>
-            {{ $lmsclass->batch_id }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Batch Id:</label>
+                {{ $lmsclass->batch_id }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Course Id:</label>
-            {{ $lmsclass->course_id }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Course Id:</label>
+                {{ $lmsclass->course_id }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Lesson:</label>
-            {{ $lmsclass->lesson }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Lesson:</label>
+                {{ $lmsclass->lesson }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Class Image:</label>
-            <img width="100" src="{{ asset('/kycs/img/' . $lmsclass->image) }}" alt="Class Image">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Class Image:</label>
+                <img width="100" src="{{ asset('/kycs/img/' . $lmsclass->image) }}" alt="Class Image">
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Class Document:</label>
-            <a target="_blank" href="{{ asset('/kycs/doc/' . $lmsclass->doc) }}">View</a>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Class Document:</label>
+                <a target="_blank" href="{{ asset('/kycs/doc/' . $lmsclass->doc) }}">View</a>
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Link:</label>
-            {{ $lmsclass->link }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Link:</label>
+                {{ $lmsclass->link }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Available Days:</label>
-            {{ $lmsclass->available_days }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Available Days:</label>
+                {{ $lmsclass->available_days }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Number of Views:</label>
-            {{ $lmsclass->no_of_views }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Number of Views:</label>
+                {{ $lmsclass->no_of_views }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Level:</label>
-            {{ $lmsclass->level }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Level:</label>
+                {{ $lmsclass->level }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Password:</label>
-            {{ $lmsclass->password }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Password:</label>
+                {{ $lmsclass->password }}
+            </div>
         </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <label>Status:</label>
-            {{ $lmsclass->status }}
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label>Status:</label>
+                {{ $lmsclass->status }}
+            </div>
         </div>
     </div>
 </div>

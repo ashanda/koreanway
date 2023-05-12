@@ -29,35 +29,37 @@ Auth::routes();
 
 
 // Admin routes
-Route::post('/admin',[LoginController::class,'adminLogin'])->name('admin.login');
-Route::get('/admin',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');
+Route::post('/admin', [LoginController::class, 'adminLogin'])->name('admin.login');
+Route::get('/admin', [LoginController::class, 'showAdminLoginForm'])->name('admin.login-view');
 Route::middleware('auth:admin')->group(function () {
 
-    Route::get('/admin/dashboard', [AdminController::class,'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    // Batches routes
+    Route::resource('/admin/batch', BatchController::class);
+
+    // Courses routes
+    Route::resource('/admin/course', CourseController::class);
+
+    // Classes routs
+    Route::resource('/admin/lmsclass', LmsclassController::class);
+
+    // Classes routs
+    Route::resource('/admin/teacher', TeacherController::class);
+    
 });
 
 
 // Teacher routes
-Route::get('/teacher',[LoginController::class,'showTeacherLoginForm'])->name('teacher.login-view');
-Route::post('/teacher',[LoginController::class,'teacherLogin'])->name('teacher.login');
+Route::get('/teacher', [LoginController::class, 'showTeacherLoginForm'])->name('teacher.login-view');
+Route::post('/teacher', [LoginController::class, 'teacherLogin'])->name('teacher.login');
 Route::middleware('auth:teacher')->group(function () {
 
-    Route::get('/teacher/dashboard', [TeacherController::class,'index'])->name('teacher.dashboard');
-   
+    Route::get('/teacher/dashboard', [TeacherController::class, 'dashboard'])->name('teacher.dashboard');
 });
 
 //Users routes
 
 Route::middleware('auth:user')->group(function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
-   
 });
-
-// Batches routes
-Route::resource('/admin/batch', BatchController::class);
-
-// Courses routes
-Route::resource('/admin/course', CourseController::class);
-
-// Classes routs
-Route::resource('/admin/lmsclass', LmsclassController::class);
