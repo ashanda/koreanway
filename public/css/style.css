@@ -1,0 +1,15 @@
+/* Custom CSS Here */
+
+.body_content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 56px);
+}
+.inner_content {
+    flex: 1;
+}
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+}

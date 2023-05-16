@@ -61,5 +61,6 @@ Route::middleware('auth:teacher')->group(function () {
 //Users routes
 
 Route::middleware('auth:user')->group(function () {
-    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+    Route::get('/home', [UserController::class, 'dashboard'])->name('dashboard');
 });
+        
